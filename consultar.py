@@ -1,15 +1,10 @@
-import mysql.connector
+import dbconnector
 
 # sql é o statement de inserir e val é o valor a ser inserido
 #exemplo : sql = "INSERT INTO customers (name, address) VALUES (%s, %s)"
 #val = ("John", "Highway 21")
 
-db = mysql.connector.connect(
-        host="127.0.0.1",
-        user = "root",
-        password= 'root123',
-        database="carrplast"
-    )
+db = dbconnector.dbtabelas
 
 mycursor = db.cursor()
 

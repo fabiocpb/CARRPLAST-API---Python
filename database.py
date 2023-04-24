@@ -1,11 +1,7 @@
-import mysql.connector
+import dbconnector
 
 def criarBanco():
-    db = mysql.connector.connect(
-        host="127.0.0.1",
-        user = "root",
-        password= 'root123'
-    )
+    db = dbconnector.dbiniciar
 
     mycursor = db.cursor()
 

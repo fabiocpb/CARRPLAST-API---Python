@@ -1,11 +1,6 @@
-import mysql.connector
+import dbconnector
 
-mydb = mysql.connector.connect(
-     host="127.0.0.1",
-     user = "root",
-     password= 'root123',
-     database="carrplast"
-)
+mydb = dbconnector.dbtabelas
 
 def atualizarTear(tempo_ligado, tempo_parado, total_de_paradas, tempo_medio, eficiencia_total, id):
 
@@ -22,7 +17,7 @@ def atualizarTear(tempo_ligado, tempo_parado, total_de_paradas, tempo_medio, efi
         mydb.commit()
 
     except:
-        
+
         print('Algum erro ocorreu.')
 
     else:
