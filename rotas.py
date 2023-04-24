@@ -5,6 +5,7 @@ import tabelas
 import inserir
 import consultar
 import editar
+import deletar
 
 app = Flask(__name__)
 
@@ -45,8 +46,4 @@ def inserirErrosTear(tipo, tempo_parado, total_de_paradas, tempo_em_paradas, men
 # Excluir
 @app.route('/teares/<int:id>',methods=['DELETE'])
 def excluir_tear(id):
-    for indice, tear in enumerate(teares):
-        if tear.get('id') == id:
-            del teares[indice]
-
-    return jsonify(teares)
+    deletar.removerTear(id)
