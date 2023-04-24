@@ -31,13 +31,13 @@ def inserirDadosTear(tempo_ligado, tempo_parado, total_de_paradas, tempo_medio, 
 
     
 
-def inserirErrosTear(tipo, tempo_parado, total_de_paradas, tempo_em_paradas, menor_tempo, maior_tempo, tempo_medio, eficiencia_perdida):
+def inserirErrosTear(tearID, tipo, tempo_parado, total_de_paradas, tempo_em_paradas, menor_tempo, maior_tempo, tempo_medio, eficiencia_perdida):
 
-    val = (tipo, tempo_parado, total_de_paradas, tempo_em_paradas, menor_tempo, maior_tempo, tempo_medio, eficiencia_perdida)
+    val = (tearID, tipo, tempo_parado, total_de_paradas, tempo_em_paradas, menor_tempo, maior_tempo, tempo_medio, eficiencia_perdida)
 
     try:
 
-        sql_erro = "INSERT INTO erros (tipo, tempo_parado, total_de_paradas, tempo_em_paradas, menor_tempo, maior_tempo, tempo_medio, eficiencia_perdida) VALUES (%s, %s, %s, %s, %s, %s, %s, %s)"
+        sql_erro = "INSERT INTO erros (tearID, tipo, total_de_paradas, tempo_em_paradas, menor_tempo, maior_tempo, tempo_medio, eficiencia_perdida) VALUES (%s, %s, %s, %s, %s, %s, %s, %s)"
 
         mycursor.execute(sql_erro, val)
 
