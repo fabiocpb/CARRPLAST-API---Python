@@ -4,6 +4,7 @@ import database
 import tabelas
 import inserir
 import consultar
+import editar
 
 app = Flask(__name__)
 
@@ -21,24 +22,25 @@ def consultar():
    
 
 # Consultar(id)
-@app.route('/teares/last',methods=['GET'])
-def consultar():
-    return consultar.obter_ultimo_tear()
+@app.route('/teares/<int:id>',methods=['GET'])
+def consultar(id):
+    return consultar.obter_ultimo_tear(id)
     #return jsonify(teares[len(teares)- 1])
+
 # Editar
 @app.route('/teares/<int:id>',methods=['PUT'])
-def editar_tear_por_id(id):
-    tear_alterado = request.get_json()
-    for indice,tear in enumerate(teares):
-        if tear.get('id') == id:
-            teares[indice].update(tear_alterado)
-            return jsonify(teares[indice])
+def editar(tempo_ligado, tempo_parado, total_de_paradas, tempo_medio, eficiencia_total, id):
+    editar.atualizarTear(tempo_ligado, tempo_parado, total_de_paradas, tempo_medio, eficiencia_total, id)
+    
 # Criar
-@app.route('/teares',methods=['POST'])
-def incluir_novo_tear():
-    novo_tear = request.get_json()
-    teares.append(novo_tear)
-    return jsonify(teares)
+@app.route('/teares/<tempo_ligado>/<tempo_parado>/<total_de_paradas>/<tempo_medio>/<eficiencia_total>' ,methods=['POST'])
+def inserir(tempo_ligado, tempo_parado, total_de_paradas, tempo_medio, eficiencia_total):
+    inserir.inserirDadosTear(tempo_ligado, tempo_parado, total_de_paradas, tempo_medio, eficiencia_total)
+
+#Erros
+@app.route('/teares/erros/<tipo>/<tempo_parado>/<total_de_paradas>/<tempo_em_paradas>/<menor_tempo>/<maior_tempo>/<tempo_medio>/<eficiencia_perdida>',methods=['POST'])
+def inserir(tipo, tempo_parado, total_de_paradas, tempo_em_paradas, menor_tempo, maior_tempo, tempo_medio, eficiencia_perdida):
+    inserir.inserirErrosTear(tipo, tempo_parado, total_de_paradas, tempo_em_paradas, menor_tempo, maior_tempo, tempo_medio, eficiencia_perdida)
     
 # Excluir
 @app.route('/teares/<int:id>',methods=['DELETE'])

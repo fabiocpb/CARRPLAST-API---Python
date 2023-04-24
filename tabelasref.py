@@ -37,4 +37,3 @@ tabela = {
             ]
             }
 
-tipos_de_defeitos = ['Quebra de Urdume', 'Quebra de Trama', 'Fim de trama']

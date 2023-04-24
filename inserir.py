@@ -13,7 +13,9 @@ db = mysql.connector.connect(
 
 mycursor = db.cursor()
 
-def inserirDadosTear(val):
+def inserirDadosTear(tempo_ligado, tempo_parado, total_de_paradas, tempo_medio, eficiencia_total):
+
+    val = (tempo_ligado, tempo_parado, total_de_paradas, tempo_medio, eficiencia_total)
 
     sql = "INSERT INTO tear (tempo_ligado, tempo_parado, total_de_paradas, tempo_medio, eficiencia_total) VALUES (%s, %s, %s, %s, %s)"
 
@@ -23,7 +25,9 @@ def inserirDadosTear(val):
 
     
 
-def inserirErrosTear(val):
+def inserirErrosTear(tipo, tempo_parado, total_de_paradas, tempo_em_paradas, menor_tempo, maior_tempo, tempo_medio, eficiencia_perdida):
+
+    val = (tipo, tempo_parado, total_de_paradas, tempo_em_paradas, menor_tempo, maior_tempo, tempo_medio, eficiencia_perdida)
 
     sql_erro = "INSERT INTO erros (tipo, tempo_parado, total_de_paradas, tempo_em_paradas, menor_tempo, maior_tempo, tempo_medio, eficiencia_perdida) VALUES (%s, %s, %s, %s, %s, %s, %s, %s)"
 
