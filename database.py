@@ -9,9 +9,9 @@ def criarBanco():
 
     mycursor = db.cursor()
 
-    mycursor.execute("CREATE DATABASE [IF NOT EXISTS] carrplast")
+    mycursor.execute("CREATE DATABASE IF NOT EXISTS carrplast")
 
-    mycursor.execute("SHOW DATABASES")
+    #mycursor.execute("SHOW DATABASES")
 
-    for x in mycursor:
-        print(x)
+    #for x in mycursor:
+        #print(x)
