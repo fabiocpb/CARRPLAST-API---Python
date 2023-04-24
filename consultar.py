@@ -14,24 +14,36 @@ db = mysql.connector.connect(
 mycursor = db.cursor()
 
 def obter_teares():
+        
+    try:
 
-    sql = "SELECT * FROM tear"
+        sql = "SELECT * FROM tear"
 
-    mycursor.execute(sql)
+        mycursor.execute(sql)
 
-    resultado = mycursor.fetchall()
+        resultado = mycursor.fetchall()
 
-    for x in resultado:
-        return x
+    except:
+        print("Algum erro ocorreu.")
+
+    else:
+        print(resultado)
+        return resultado
 
 
 def obter_ultimo_tear(id):
 
-    sql = "SELECT * FROM tear WHERE id = %s"
+    try:
 
-    mycursor.execute(sql, id)
+        sql = "SELECT * FROM tear WHERE id = %s"
 
-    resultado = mycursor.fetchall()
+        mycursor.execute(sql, id)
 
-    for x in resultado:
-        return x
+        resultado = mycursor.fetchall()
+
+    except:
+        print("Algum erro ocorreu.")
+
+    else:
+        print(resultado)
+        return resultado

@@ -17,11 +17,21 @@ def inserirDadosTear(tempo_ligado, tempo_parado, total_de_paradas, tempo_medio, 
 
     val = (tempo_ligado, tempo_parado, total_de_paradas, tempo_medio, eficiencia_total)
 
-    sql = "INSERT INTO tear (tempo_ligado, tempo_parado, total_de_paradas, tempo_medio, eficiencia_total) VALUES (%s, %s, %s, %s, %s)"
+    try:
 
-    mycursor.execute(sql, val)
+        sql = "INSERT INTO tear (tempo_ligado, tempo_parado, total_de_paradas, tempo_medio, eficiencia_total) VALUES (%s, %s, %s, %s, %s)"
 
-    db.commit()
+        mycursor.execute(sql, val)
+
+        db.commit()
+    
+    except:
+
+        return print("Algum erro ocorreu.")
+    
+    else:
+
+        return print("Dados inseridos com sucesso")
 
     
 
@@ -29,8 +39,18 @@ def inserirErrosTear(tipo, tempo_parado, total_de_paradas, tempo_em_paradas, men
 
     val = (tipo, tempo_parado, total_de_paradas, tempo_em_paradas, menor_tempo, maior_tempo, tempo_medio, eficiencia_perdida)
 
-    sql_erro = "INSERT INTO erros (tipo, tempo_parado, total_de_paradas, tempo_em_paradas, menor_tempo, maior_tempo, tempo_medio, eficiencia_perdida) VALUES (%s, %s, %s, %s, %s, %s, %s, %s)"
+    try:
 
-    mycursor.execute(sql_erro, val)
+        sql_erro = "INSERT INTO erros (tipo, tempo_parado, total_de_paradas, tempo_em_paradas, menor_tempo, maior_tempo, tempo_medio, eficiencia_perdida) VALUES (%s, %s, %s, %s, %s, %s, %s, %s)"
 
-    db.commit()
+        mycursor.execute(sql_erro, val)
+
+        db.commit()
+    
+    except:
+
+        return print("Algum erro ocorreu.")
+    
+    else:
+
+         return print("Dados inseridos com sucesso")
