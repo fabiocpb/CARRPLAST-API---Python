@@ -33,8 +33,12 @@ def consultarPorID(id):
 def editarTear(tempo_ligado, tempo_parado, total_de_paradas, tempo_medio, eficiencia_total, id):
     editar.atualizarTear(tempo_ligado, tempo_parado, total_de_paradas, tempo_medio, eficiencia_total, id)
 
+@app.route('/teste/', methods=['POST'])
+def rotaTeste():
+    return print(request.accept_languages)
+
 # Criar
-@app.route('/teares/<tempo_ligado>/<tempo_parado>/<total_de_paradas>/<tempo_medio>/<eficiencia_total>' ,methods=['POST'])
+@app.route('/teares/criar/' ,methods=['POST'])
 def inserirDadosTear(tempo_ligado, tempo_parado, total_de_paradas, tempo_medio, eficiencia_total):
     inserir.inserirDadosTear(tempo_ligado, tempo_parado, total_de_paradas, tempo_medio, eficiencia_total)
 

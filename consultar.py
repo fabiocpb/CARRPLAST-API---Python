@@ -42,3 +42,20 @@ def obter_ultimo_tear(id):
     else:
         print(resultado)
         return resultado
+    
+def obter_turnos(id):
+        
+    try:
+
+        sql = "SELECT * FROM turno WHERE id = %s"
+
+        mycursor.execute(sql)
+
+        resultado = mycursor.fetchall()
+
+    except:
+        print("Algum erro ocorreu.")
+
+    else:
+        print(resultado)
+        return resultado

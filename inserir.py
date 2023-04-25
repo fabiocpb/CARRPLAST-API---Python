@@ -50,3 +50,22 @@ def inserirErrosTear(tearID, tipo, tempo_parado, total_de_paradas, tempo_em_para
     else:
 
          return print("Dados inseridos com sucesso")
+    
+def inserirTurno(turno):
+     
+    try:
+
+        sql_erro = "INSERT INTO turno (tipo_de_turno) VALUES (%s)"
+
+        mycursor.execute(sql_erro, turno)
+
+        db.commit()
+    
+    except:
+
+        return print("Algum erro ocorreu.")
+    
+    else:
+
+        return print("Dados inseridos com sucesso")
+

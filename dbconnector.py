@@ -27,14 +27,14 @@ import mysql.connector
     )
  """
 dbtabelas = mysql.connector.connect(
-        host="127.0.0.1",
-        user = "root",
-        password= 'root123',
+        host="matheusfsantana99.mysql.pythonanywhere-services.com",
+        user = "matheusfsantana9",
+        password= 'carrplast123',
         database="carrplast"
     )
 
 dbiniciar = mysql.connector.connect(
-        host="127.0.0.1",
-        user = "root",
-        password= 'root123'
+        host="matheusfsantana99.mysql.pythonanywhere-services.com",
+        user = "matheusfsantana9",
+        password= 'carrplast123'
     )
